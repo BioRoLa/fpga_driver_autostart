@@ -1,0 +1,10 @@
+#!/bin/sh
+# /etc/rc.local - Executed at system boot
+
+# Wait for system and network services to stabilize
+sleep 30
+
+# Launch FPGA services as admin user with output discarded to save Flash life
+su - admin -c 'bash /home/admin/fpga_control.sh start' > /dev/null 2>&1
+
+exit 0
